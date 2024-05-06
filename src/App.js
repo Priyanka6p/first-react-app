@@ -1,24 +1,32 @@
-import logo from './logo.svg';
-import './App.css';
+import React, { useState } from 'react';
+import { BrowserRouter, Routes, Route } from 'react-router-dom';
+import StopCounter from './components/StopCounter/StopCounter';
+import PostAPI from './components/Post/PostAPI';
+import Parent from './components/Parent Child/Parent';
+import Debouncing from './components/Debouncing';
+import { NavBar } from './components/NavBar';
+import Child from './components/Parent Child/Child';
+import NewsList from './components/News/NewsList';
+import dayjs from 'dayjs';
+import Dayjs from './components/Dayjs';
 
 function App() {
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+    <>
+      <BrowserRouter>
+        <NavBar />
+        <Routes>
+          <Route path='/' element={<Debouncing />} />
+          <Route path='/stopCounter' element={<StopCounter />} />
+          <Route path='/stopCounter/:id' element={<StopCounter />} />
+          <Route path='/postapi' element={<PostAPI />} />
+          <Route path='/parent' element={<Parent />} />
+          <Route path='/child' element={<Child />} />
+          <Route path='/newslist' element={<NewsList />} />
+          <Route path='/dayjs' element={<Dayjs />} />
+        </Routes>
+      </BrowserRouter>
+    </>
   );
 }
 
