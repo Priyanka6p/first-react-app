@@ -10,8 +10,10 @@ function PostAPI() {
         const fetchdData = await fetch(url)
         const value = await fetchdData.json();
         value.map((ele) => {
-            arr.push(ele.id)
-            setData(arr)
+            if (ele.id < 6) {
+                arr.push(ele.id)
+                setData(arr)
+            }
         })
     }
 

@@ -1,1 +1,1 @@
-export const url = "https://jsonplaceholder.typicode.com/posts?_limit=5";
+export const url = "https://jsonplaceholder.typicode.com/posts";
